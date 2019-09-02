@@ -3,7 +3,7 @@ package ru.itis.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.itis.entities.ChatMessage;
-import ru.itis.repository.MessageRepository;
+import ru.itis.repository.postgres.MessageRepository;
 
 import java.util.ArrayList;
 import java.util.List;

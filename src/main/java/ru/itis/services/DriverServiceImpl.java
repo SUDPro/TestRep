@@ -4,8 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.itis.entities.Driver;
 import ru.itis.forms.DriverForm;
-import ru.itis.forms.UserForm;
-import ru.itis.repository.DriverRepository;
+import ru.itis.repository.postgres.DriverRepository;
 
 import java.util.List;
 import java.util.Optional;

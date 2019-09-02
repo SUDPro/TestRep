@@ -6,7 +6,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
 import ru.itis.entities.User;
-import ru.itis.repository.UsersRepository;
+import ru.itis.repository.postgres.UsersRepository;
 
 import java.util.Optional;
 

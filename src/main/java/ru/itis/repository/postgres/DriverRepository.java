@@ -1,4 +1,4 @@
-package ru.itis.repository;
+package ru.itis.repository.postgres;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

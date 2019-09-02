@@ -4,8 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.itis.entities.StudentApplication;
 import ru.itis.entities.User;
-import ru.itis.repository.StudentApplicationRepository;
-import ru.itis.repository.TripRepository;
+import ru.itis.repository.postgres.StudentApplicationRepository;
+import ru.itis.repository.postgres.TripRepository;
 
 import java.util.ArrayList;
 import java.util.List;

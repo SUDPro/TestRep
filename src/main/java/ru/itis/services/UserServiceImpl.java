@@ -6,9 +6,8 @@ import org.springframework.stereotype.Service;
 import ru.itis.entities.Role;
 import ru.itis.entities.User;
 import ru.itis.forms.UserForm;
-import ru.itis.repository.UsersRepository;
+import ru.itis.repository.postgres.UsersRepository;
 
-import java.util.List;
 @Service
 public class UserServiceImpl implements UserService {
 
