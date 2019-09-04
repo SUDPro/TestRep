@@ -26,7 +26,7 @@ public class MyLogger {
         this.logger = LoggerFactory.getLogger(MyLogger.class);
     }
 
-    @Before("execution (* *..UserService.signUp(..))")
+    @Before("execution (* *..UserService.save(..))")
     public void logSignUp(JoinPoint jp) {
         logsRepository.save(Log.builder()
                 .date(new Date())
