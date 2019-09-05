@@ -22,8 +22,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return new BCryptPasswordEncoder();
     }
 
-    @Autowired
     @Qualifier("customUserDetailsService")
+    @Autowired
     private UserDetailsService userDetailsService;
 
     @Override
@@ -34,7 +34,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/test").permitAll()
                 .antMatchers("/reg").permitAll()
                 .antMatchers("/profile").authenticated()
-                .antMatchers("/map").hasRole("STUDENT")
+                .antMatchers
+                        ("/map").hasRole("STUDENT")
                 .and()
                 .formLogin()
                 .loginPage("/auth")
@@ -44,8 +45,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .defaultSuccessUrl("/profile")
                 .and()
-                .logout().logoutSuccessUrl("/auth")
-                .permitAll();
+                .logout().logoutSuccessUrl("/auth");
     }
 
     @Bean

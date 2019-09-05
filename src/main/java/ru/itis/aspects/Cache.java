@@ -1,40 +1,34 @@
 package ru.itis.aspects;
 
+import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Configuration;
+import ru.itis.entities.Driver;
+import ru.itis.entities.Trip;
 import ru.itis.entities.User;
-import ru.itis.repository.postgres.UsersRepository;
+import ru.itis.repository.postgres.DriverRepository;
+import ru.itis.repository.postgres.TripRepository;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
+@Configuration
+@Aspect
 public class Cache {
 
-    private Map<Long, User> userCache;
+    private Map<Long, Driver> driverCache;
 
     public Cache() {
-        userCache = new HashMap<>();
+        driverCache = new HashMap<>();
     }
 
     @Autowired
-    UsersRepository albumRepository;
+    DriverRepository driverRepository;
 
-
-    @Around("execution(* *..AlbumService.getAlbum(..))")
-    public Optional<User> checkCache(ProceedingJoinPoint jp) {
-        if (userCache.containsKey(jp.getArgs()[0])) {
-            return Optional.ofNullable(userCache.get(jp.getArgs()[0]));
-        } else {
-            Optional<User> userOPtional = null;
-            try {
-                userOPtional = (Optional<User>) jp.proceed(jp.getArgs());
-                userOPtional.ifPresent(user -> userCache.put(user.getId(), user));
-            } catch (Throwable throwable) {
-                throwable.printStackTrace();
-            }
-            return userOPtional;
-        }
-    }
 }

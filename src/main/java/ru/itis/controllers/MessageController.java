@@ -9,6 +9,7 @@ import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.messaging.simp.SimpMessageHeaderAccessor;
 import org.springframework.messaging.simp.SimpMessageSendingOperations;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import ru.itis.entities.ChatMessage;
 import ru.itis.entities.Item;
 import ru.itis.listeners.WebSocketEventListener;
+import ru.itis.security.UserDetailsImpl;
 import ru.itis.services.MessageService;
 
 import java.util.ArrayList;
@@ -61,7 +63,7 @@ public class MessageController {
     }
 
     @GetMapping("/admin")
-    public String getAdminPage(ModelMap modelMap) {
+    public String getAdminPage(ModelMap modelMap, Authentication auth) {
         modelMap.addAttribute("messages", messageService.findChatMessageByRoomsId(messageService.findAllRoomId()));
         return "admin";
     }

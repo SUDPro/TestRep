@@ -1,5 +1,5 @@
 package ru.itis.entities;
 
 public enum Role {
-    STUDENT, OPERATOR
+    STUDENT, ADMIN
 }
