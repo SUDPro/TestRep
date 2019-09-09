@@ -13,6 +13,6 @@ public class MongoConfig extends AbstractMongoConfiguration {
 
     @Override
     protected String getDatabaseName() {
-        return "newDB";
+        return "local";
     }
 }
