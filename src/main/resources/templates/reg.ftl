@@ -23,6 +23,9 @@
         <label ><b>Password</b></label>
         <input type="password" placeholder="Enter Password" name="password" required>
 
+        <label ><b>Birth</b></label>
+        <input type="date" placeholder="Enter Password" name="date" required>
+
         <label ><b>Address</b></label>
         <input type="text" placeholder="Enter full address. Ex: Kazan, Pushkina st, 28" name="address" required>
 

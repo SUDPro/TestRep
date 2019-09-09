@@ -36,6 +36,7 @@
     <h5>It's student</h5>
     <h4>${user.getName()}</h4>
     <h4>${user.getAddress()}</h4>
+    <h4>${user.getDate()}</h4>
     <div id="map"></div>
     </#if>
 

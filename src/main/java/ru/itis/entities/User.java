@@ -4,10 +4,12 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.validator.constraints.Email;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import java.io.File;
+import java.util.Date;
 import java.util.Set;
 
 @Entity
@@ -28,6 +30,9 @@ public class User {
     private String email;
     private String passwordHash;
     private String address;
+
+    @Temporal(TemporalType.DATE)
+    private Date date;
 
     @Enumerated(value = EnumType.STRING)
     private Role role;

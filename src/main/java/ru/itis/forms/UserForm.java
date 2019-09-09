@@ -5,7 +5,11 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.validator.constraints.Email;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Past;
+import java.util.Date;
 
 @Data
 @AllArgsConstructor
@@ -19,4 +23,7 @@ public class UserForm {
     String email;
     String password;
     String address;
+
+    @Past
+    Date date;
 }

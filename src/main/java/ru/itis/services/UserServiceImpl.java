@@ -25,6 +25,7 @@ public class UserServiceImpl implements UserService {
                 .surname(form.getSurname())
                 .address(form.getAddress())
                 .passwordHash(passwordEncoder.encode(form.getPassword()))
+                .date(form.getDate())
                 .role(Role.STUDENT)
                 .build();
         usersRepository.save(user);
