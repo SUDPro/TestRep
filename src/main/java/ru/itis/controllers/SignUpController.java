@@ -2,6 +2,7 @@ package ru.itis.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,7 +23,10 @@ public class SignUpController {
     UserService userService;
 
     @GetMapping("/reg")
-    public String getRegPage(){
+    public String getRegPage(Authentication authentication){
+        if(authentication !=null){
+            return "redirect:/profile";
+        }
         return "reg";
     }
 

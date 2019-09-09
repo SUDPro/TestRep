@@ -2,6 +2,7 @@ package ru.itis.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,7 +25,7 @@ public class UserController {
     DriverService driverService;
 
     @GetMapping("/profile")
-    public String getPage(ModelMap modelMap, Authentication auth){
+    public String getPage(ModelMap modelMap,HttpServletRequest request, Authentication auth){
         modelMap.addAttribute("user", ((UserDetailsImpl)(auth.getPrincipal())).getUser());
         return "profile";
     }

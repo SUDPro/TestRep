@@ -31,7 +31,7 @@
     </a>
     </#if>
 
-    <#if user.getRole() == "STUDENT">
+    <#if user.getRole() == "ROLE_STUDENT">
         <br>
     <h5>It's student</h5>
     <h4>${user.getName()}</h4>

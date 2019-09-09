@@ -21,6 +21,7 @@ import ru.itis.listeners.WebSocketEventListener;
 import ru.itis.security.UserDetailsImpl;
 import ru.itis.services.MessageService;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -63,7 +64,8 @@ public class MessageController {
     }
 
     @GetMapping("/admin")
-    public String getAdminPage(ModelMap modelMap, Authentication auth) {
+    public String getAdminPage(ModelMap modelMap, Authentication auth, HttpServletRequest request) {
+        request.isUserInRole("ADMIN");
         modelMap.addAttribute("messages", messageService.findChatMessageByRoomsId(messageService.findAllRoomId()));
         return "admin";
     }
