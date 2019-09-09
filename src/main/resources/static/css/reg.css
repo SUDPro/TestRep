@@ -5,6 +5,10 @@
     padding: 16px;
 }
 
+.alert-danger {
+    color: red;
+
+}
 /* Full-width input fields */
 input[type=text], input[type=password], input[type=email], input[type=date] {
     width: 100%;

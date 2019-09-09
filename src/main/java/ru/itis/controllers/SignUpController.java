@@ -11,6 +11,7 @@ import ru.itis.entities.User;
 import ru.itis.forms.UserForm;
 import ru.itis.services.UserService;
 
+import javax.validation.Valid;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -26,7 +27,7 @@ public class SignUpController {
     }
 
     @PostMapping("/reg")
-    public String regUser(UserForm userForm){
+    public String regUser(@Valid UserForm userForm){
         userService.save(userForm);
         System.out.println(userForm.getAddress());
         return "redirect:/auth";

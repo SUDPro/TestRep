@@ -9,8 +9,9 @@
     <div class="container">
         <h1>Authentication</h1>
         <hr>
-
-
+        <#if error??>
+            <div class="alert alert-danger">Wrong login or password!</div>
+        </#if>
         <label ><b>Email</b></label>
         <input type="email" placeholder="Enter Email" name="email" required>
 
