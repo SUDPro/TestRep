@@ -21,7 +21,7 @@
 <body>
 <h1>Profile</h1>
 <br>
-    <#if user.getRole() == "OPERATOR">
+    <#if user.getRole() == "ROLE_ADMIN">
     <h5> it's operator</h5>
     <a href="/new_driver">
     <button name="addDriver">Add Driver</button>
