@@ -11,19 +11,19 @@
         <p>Please fill in this form to create an account.</p>
         <hr>
 
-        <label for="name"><b>Name</b></label>
+        <label ><b>Name</b></label>
         <input type="text" placeholder="Enter Name" name="name" required>
 
-        <label for="surname"><b>Surname</b></label>
+        <label ><b>Surname</b></label>
         <input type="text" placeholder="Enter Surname" name="surname" required>
 
-        <label for="email"><b>Email</b></label>
+        <label ><b>Email</b></label>
         <input type="email" placeholder="Enter Email" name="email" required>
 
-        <label for="psw"><b>Password</b></label>
-        <input type="password" placeholder="Enter Password" name="psw" required>
+        <label ><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="password" required>
 
-        <label for="surname"><b>Address</b></label>
+        <label ><b>Address</b></label>
         <input type="text" placeholder="Enter full address. Ex: Kazan, Pushkina st, 28" name="address" required>
 
 

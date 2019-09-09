@@ -1,14 +1,29 @@
 <html>
-<title>
-    Sign In
-</title>
+<head>
+    <title>
+    </title>
+    <link rel="stylesheet" href="/css/reg.css"/>
+</head>
 <body>
-<h1> Sign In</h1>
-<br>
 <form method="post">
-    <input required name="email" placeholder="email">
-    <input required name="password" type="password" placeholder="password">
-    <input type="submit">
+    <div class="container">
+        <h1>Authentication</h1>
+        <hr>
+
+
+        <label ><b>Email</b></label>
+        <input type="email" placeholder="Enter Email" name="email" required>
+
+        <label ><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="password" required>
+
+
+        <button type="submit" class="registerbtn">Register</button>
+    </div>
+
+    <div class="container signin">
+        <p>Don't have an account? <a href="/reg">Registration</a>.</p>
+    </div>
 </form>
 </body>
 </html>
