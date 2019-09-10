@@ -35,7 +35,12 @@ public class TripServiceImpl implements TripService {
                 .start(form.getStart())
                 .finish(form.getFinish())
                 .driver(driverRepository.findByName(form.getDriver()).get())
+                .date(form.getDate())
                 .build();
         repository.save(trip);
+    }
+    @Override
+    public boolean nameIsUnique(String name) {
+        return !repository.findByName(name).isPresent();
     }
 }

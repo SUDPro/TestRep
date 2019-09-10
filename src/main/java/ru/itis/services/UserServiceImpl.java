@@ -26,7 +26,7 @@ public class UserServiceImpl implements UserService {
                 .address(form.getAddress())
                 .passwordHash(passwordEncoder.encode(form.getPassword()))
                 .date(form.getDate())
-                .role(Role.ROLE_STUDENT)
+                .role(Role.STUDENT)
                 .build();
         usersRepository.save(user);
     }
@@ -44,5 +44,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public User getById(Long id) {
         return null;
+    }
+
+    @Override
+    public boolean emailIsUnique(String login) {
+        return !usersRepository.findUserByEmail(login).isPresent();
     }
 }

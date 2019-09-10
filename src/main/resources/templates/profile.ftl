@@ -21,7 +21,7 @@
 <body>
 <h1>Profile</h1>
 <br>
-    <#if user.getRole() == "ROLE_ADMIN">
+    <#if user.getRole() == "ADMIN">
     <h5> it's operator</h5>
     <a href="/new_driver">
     <button name="addDriver">Add Driver</button>
@@ -31,14 +31,13 @@
     </a>
     </#if>
 
-    <#if user.getRole() == "ROLE_STUDENT">
+    <#if user.getRole() == "STUDENT">
         <br>
     <h5>It's student</h5>
     <h4>${user.getName()}</h4>
     <h4>${user.getAddress()}</h4>
     <h4>${user.getDate()}</h4>
     <div id="map"></div>
-    </#if>
 
 
 <script type="text/javascript">
@@ -135,5 +134,6 @@
         });
     }
 </script>
+    </#if>
 </body>
 </html>

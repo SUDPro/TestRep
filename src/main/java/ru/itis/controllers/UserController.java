@@ -5,6 +5,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import ru.itis.entities.User;
@@ -14,6 +15,10 @@ import ru.itis.services.DriverService;
 import ru.itis.services.UserService;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.validation.Valid;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Controller
 public class UserController {
@@ -36,7 +41,16 @@ public class UserController {
     }
 
     @PostMapping("/new_driver")
-    public String addNewDriver(DriverForm form){
+    public String addNewDriver( @Valid DriverForm form, BindingResult result, ModelMap modelMap){
+        System.out.println("driver method");
+        if (result.hasErrors()) {
+            List<String> errors = result
+                    .getFieldErrors()
+                    .stream()
+                    .map(error -> error.getDefaultMessage()).collect(Collectors.toList());
+            modelMap.addAttribute("errors", errors);
+            return "newDriver";
+        }
         driverService.save(form);
         return "redirect:/profile";
     }

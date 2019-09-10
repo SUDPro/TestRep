@@ -10,4 +10,5 @@ public interface UserService {
     User findByUserRole(String role);
     User getByEmail(String email);
     User getById(Long id);
+    boolean emailIsUnique(String login);
 }

@@ -1,19 +1,25 @@
 package ru.itis.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnExpression;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.*;
 import ru.itis.entities.StudentApplication;
 import ru.itis.forms.TripForm;
 import ru.itis.security.UserDetailsImpl;
 import ru.itis.services.TripApplicationsService;
 import ru.itis.services.TripService;
+
+import javax.validation.Valid;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Controller
 public class TripController {
@@ -30,7 +36,16 @@ public class TripController {
     }
 
     @PostMapping ("/new_trip")
-    public String addTrip(TripForm tripForm){
+    public String addTrip(@Valid TripForm tripForm, BindingResult result, ModelMap modelMap){
+        System.out.println("add trip method");
+        if (result.hasErrors()) {
+            List<String> errors = result
+                    .getFieldErrors()
+                    .stream()
+                    .map(error -> error.getDefaultMessage()).collect(Collectors.toList());
+            modelMap.addAttribute("errors", errors);
+            return "newTrip";
+        }
         tripService.save(tripForm);
         return "redirect:/trips";
     }
@@ -55,5 +70,12 @@ public class TripController {
                 .build();
         service.save(application);
         return "redirect:/trip/"+ id;
+    }
+
+    @InitBinder
+    public void initBinder(WebDataBinder wb) {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        sdf.setLenient(true);
+        wb.registerCustomEditor(Date.class, new CustomDateEditor(sdf, true));
     }
 }

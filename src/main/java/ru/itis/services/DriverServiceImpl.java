@@ -32,4 +32,9 @@ public class DriverServiceImpl implements DriverService {
     public List<Driver> getDriverName(String name) {
         return driverRepository.searchDriversByName(name);
     }
+
+    @Override
+    public boolean nameIsUnique(String name) {
+        return !driverRepository.findByName(name).isPresent();
+    }
 }

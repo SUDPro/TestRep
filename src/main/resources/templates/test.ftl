@@ -5,15 +5,14 @@
     </title>
     <link rel="stylesheet" href="/css/test.css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet"
-          id="bootstrap-css">
-    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <script>
         function makeId(length) {
-            var result = '';
-            var characters = 'abcdefghijklmnopqrstuvwxyz';
+            var result           = '';
+            var characters       = 'abcdefghijklmnopqrstuvwxyz';
             var charactersLength = characters.length;
-            for (var i = 0; i < length; i++) {
+            for ( var i = 0; i < length; i++ ) {
                 result += characters.charAt(Math.floor(Math.random() * charactersLength));
             }
             return result;
@@ -37,7 +36,7 @@
                     <input type="text" id="name" placeholder="Username" autocomplete="off" class="form-control"/>
                 </div>
                 <div class="form-group">
-                    <input type="hidden" id="room-id" placeholder="Room ID" autocomplete="off"
+                    <input type="hidden" id="room-id"  placeholder="Room ID" autocomplete="off"
                            class="form-control"/>
                 </div>
                 <div class="form-group">
@@ -64,7 +63,7 @@
             <div class="form-group">
                 <div class="input-group clearfix">
                     <input type="text" id="message" placeholder="Type a message..."
-                           autocomplete="off" class="form-control"/>
+                           autocomplete="off"class="form-control"/>
                     <button type="submit" class="primary">Send</button>
                 </div>
             </div>
@@ -73,7 +72,7 @@
 </div>
 </div>
 
-<script src="/webjars/sockjs-client/sockjs.min.js"></script>
+<script src="/webjars/sockjs-client/1.0.0/sockjs.min.js"></script>
 <script src="/webjars/stomp-websocket/stomp.min.js"></script>
 <script src="/webjars/js-cookie/js.cookie.js"></script>
 <#--<script src="/js/test.js"></script>-->

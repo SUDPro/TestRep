@@ -10,7 +10,10 @@
         <h1>Register</h1>
         <p>Please fill in this form to create an account.</p>
         <hr>
-
+        <#if error??>
+            <span class="alert-danger">${error}</span>
+            <br>
+        </#if>
         <label ><b>Name</b></label>
         <input type="text" placeholder="Enter Name" name="name" required>
 

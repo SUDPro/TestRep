@@ -23,6 +23,7 @@ public class Trip {
     private Date date;
     private String start;
     private String finish;
+
     @Column(unique = true)
     private String name;
 
