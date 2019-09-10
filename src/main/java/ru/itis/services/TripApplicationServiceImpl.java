@@ -37,6 +37,5 @@ public class TripApplicationServiceImpl implements TripApplicationsService {
         } else {
             System.out.println("Student is registered");
         }
-
     }
 }
