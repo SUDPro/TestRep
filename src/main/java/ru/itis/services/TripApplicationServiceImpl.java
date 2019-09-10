@@ -32,6 +32,11 @@ public class TripApplicationServiceImpl implements TripApplicationsService {
 
     @Override
     public void save(StudentApplication application) {
-        repository.save(application);
+        if (!repository.findByUserAndAndTrip(application.getUser(), application.getTrip()).isPresent()){
+            repository.save(application);
+        } else {
+            System.out.println("Student is registered");
+        }
+
     }
 }
