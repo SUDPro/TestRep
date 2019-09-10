@@ -29,6 +29,9 @@
     <a href="/new_trip">
         <button name="addTrip">Add Trip</button>
     </a>
+    <a href="/admin">
+        <button name="openChats">Open Chats</button>
+    </a>
     </#if>
 
     <#if user.getRole() == "STUDENT">
