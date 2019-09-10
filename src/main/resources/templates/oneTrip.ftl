@@ -13,6 +13,10 @@ START ${trip.getStart()}
 <br>
 Finish ${trip.getFinish()}
 
+<#if error??>
+    <span class="alert-danger">${error}</span>
+    <br>
+</#if>
 <form method="post">
     <input name="apply" type="hidden">
     <input type="submit">

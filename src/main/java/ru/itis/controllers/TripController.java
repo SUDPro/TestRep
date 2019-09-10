@@ -63,12 +63,16 @@ public class TripController {
         return "oneTrip";
     }
     @PostMapping(value = "/trip/{id}", params = {"apply"})
-    public String applyAdd(@PathVariable Long id, Authentication auth){
+    public String applyAdd(@PathVariable Long id, Authentication auth, ModelMap modelMap){
         StudentApplication application = StudentApplication.builder()
                 .trip(tripService.findById(id))
                 .user(((UserDetailsImpl)(auth.getPrincipal())).getUser())
                 .build();
-        service.save(application);
+        if (!service.save(application)){
+            modelMap.addAttribute("error", "You have already submitted an application");
+            return "oneTrip";
+        }
+
         return "redirect:/trip/"+ id;
     }
 

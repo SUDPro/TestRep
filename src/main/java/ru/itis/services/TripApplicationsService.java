@@ -9,5 +9,5 @@ public interface TripApplicationsService {
 
     List<User> findAllByTripId(Long id);
 
-    void save(StudentApplication application);
+    boolean save(StudentApplication application);
 }
