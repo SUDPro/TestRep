@@ -19,7 +19,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void save(UserForm form) {
-        User user  = User.builder()
+        User user = User.builder()
                 .email(form.getEmail())
                 .name(form.getName())
                 .surname(form.getSurname())
@@ -33,7 +33,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User findByUserRole(String role) {
-       return usersRepository.findUserByRole(role).get();
+        return usersRepository.findUserByRole(role).get();
     }
 
     @Override

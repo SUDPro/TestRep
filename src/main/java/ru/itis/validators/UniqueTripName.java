@@ -9,7 +9,10 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 @Constraint(validatedBy = UniqueTripNameValidator.class)
 public @interface UniqueTripName {
+
     String message() default "Name is already in use";
+
     Class<?>[] groups() default {};
+
     Class<? extends Payload>[] payload() default {};
 }

@@ -10,7 +10,10 @@ import java.util.Optional;
 public interface DriverService {
 
     void save(DriverForm form);
+
     Optional<Driver> findById(Long id);
+
     List<Driver> getDriverName(String name);
+
     boolean nameIsUnique(String name);
 }

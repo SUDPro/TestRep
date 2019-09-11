@@ -71,12 +71,12 @@ public class MessageController {
     }
 
     @GetMapping("/")
-    public String getTestPage(){
+    public String getTestPage() {
         return "redirect:/profile";
     }
 
     @GetMapping(value = "/admin", params = {"roomId"})
-    public String getOneChatPage(@RequestParam("roomId") String roomId, ModelMap modelMap){
+    public String getOneChatPage(@RequestParam("roomId") String roomId, ModelMap modelMap) {
         modelMap.addAttribute("roomId", roomId);
         modelMap.addAttribute("messages", messageService.findAllByRoomId(roomId));
         return "chat";

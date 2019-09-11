@@ -39,6 +39,7 @@ public class TripServiceImpl implements TripService {
                 .build();
         repository.save(trip);
     }
+
     @Override
     public boolean nameIsUnique(String name) {
         return !repository.findByName(name).isPresent();

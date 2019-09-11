@@ -10,6 +10,7 @@ import ru.itis.validators.UniqueTripName;
 import javax.persistence.Column;
 import javax.persistence.ManyToOne;
 import java.util.Date;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Data

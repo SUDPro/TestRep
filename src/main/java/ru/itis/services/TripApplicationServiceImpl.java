@@ -32,7 +32,7 @@ public class TripApplicationServiceImpl implements TripApplicationsService {
 
     @Override
     public boolean save(StudentApplication application) {
-        if (!repository.findByUserAndTrip(application.getUser(), application.getTrip()).isPresent()){
+        if (!repository.findByUserAndTrip(application.getUser(), application.getTrip()).isPresent()) {
             repository.save(application);
             return true;
         } else {
@@ -43,7 +43,7 @@ public class TripApplicationServiceImpl implements TripApplicationsService {
 
     @Override
     public boolean delete(StudentApplication application) {
-        if (repository.findByUserAndTrip(application.getUser(), application.getTrip()).isPresent()){
+        if (repository.findByUserAndTrip(application.getUser(), application.getTrip()).isPresent()) {
             repository.deleteById(repository.findByUserAndTrip(application.getUser(), application.getTrip()).get().getId());
             return true;
         } else {

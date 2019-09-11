@@ -11,10 +11,12 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface DriverRepository extends JpaRepository <Driver, Long> {
+public interface DriverRepository extends JpaRepository<Driver, Long> {
 
     List<Driver> findAll();
+
     Optional<Driver> findAllById(Long id);
+
     Optional<Driver> findByName(String name);
 
     @Query("from Driver d where d.name like CONCAT('%',:name,'%')")

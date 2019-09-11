@@ -31,12 +31,12 @@ public class TripController {
     TripApplicationsService service;
 
     @GetMapping("/new_trip")
-    public String getTripPage(){
+    public String getTripPage() {
         return "newTrip";
     }
 
-    @PostMapping ("/new_trip")
-    public String addTrip(@Valid TripForm tripForm, BindingResult result, ModelMap modelMap){
+    @PostMapping("/new_trip")
+    public String addTrip(@Valid TripForm tripForm, BindingResult result, ModelMap modelMap) {
         System.out.println("add trip method");
         if (result.hasErrors()) {
             List<String> errors = result
@@ -51,47 +51,48 @@ public class TripController {
     }
 
     @GetMapping("/trips")
-    public String getTripsPage(ModelMap modelMap){
+    public String getTripsPage(ModelMap modelMap) {
         modelMap.addAttribute("trips", tripService.findAll());
         return "TripList";
     }
 
     @GetMapping("/trip/{id}")
-    public String getOneTrip(ModelMap modelMap, @PathVariable Long id){
+    public String getOneTrip(ModelMap modelMap, @PathVariable Long id) {
         modelMap.addAttribute("users", service.findAllByTripId(id));
         modelMap.addAttribute("trip", tripService.findById(id));
         return "oneTrip";
     }
+
     @PostMapping(value = "/trip/{id}", params = {"apply"})
-    public String applyAdd(@PathVariable Long id, Authentication auth, ModelMap modelMap){
+    public String applyAdd(@PathVariable Long id, Authentication auth, ModelMap modelMap) {
         StudentApplication application = StudentApplication.builder()
                 .trip(tripService.findById(id))
-                .user(((UserDetailsImpl)(auth.getPrincipal())).getUser())
+                .user(((UserDetailsImpl) (auth.getPrincipal())).getUser())
                 .build();
-        if (!service.save(application)){
+        if (!service.save(application)) {
             modelMap.addAttribute("users", service.findAllByTripId(id));
             modelMap.addAttribute("trip", tripService.findById(id));
             modelMap.addAttribute("error", "You have already submitted your application");
             return "oneTrip";
         }
 
-        return "redirect:/trip/"+ id;
+        return "redirect:/trip/" + id;
     }
 
     @PostMapping(value = "/trip/{id}", params = {"decline"})
-    public String applyDelete(@PathVariable Long id, Authentication auth, ModelMap modelMap){
+    public String applyDelete(@PathVariable Long id, Authentication auth, ModelMap modelMap) {
         StudentApplication application = StudentApplication.builder()
                 .trip(tripService.findById(id))
-                .user(((UserDetailsImpl)(auth.getPrincipal())).getUser())
+                .user(((UserDetailsImpl) (auth.getPrincipal())).getUser())
                 .build();
-        if (!service.delete(application)){
+        if (!service.delete(application)) {
             modelMap.addAttribute("users", service.findAllByTripId(id));
             modelMap.addAttribute("trip", tripService.findById(id));
             modelMap.addAttribute("error", "You have already removed your application");
             return "oneTrip";
         }
 
-        return "redirect:/trip/"+ id;
+        return "redirect:/trip/" + id;
     }
 
     @InitBinder

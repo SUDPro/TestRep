@@ -26,7 +26,7 @@ public class LoginValidator implements ConstraintValidator<Login, String> {
     public boolean isUnique(String login, ConstraintValidatorContext context) {
         boolean valid = true;
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        if (auth.isAuthenticated() && !(auth instanceof AnonymousAuthenticationToken) && ((UserDetailsImpl)auth.getPrincipal()).getUser().getEmail().equals(login)) {
+        if (auth.isAuthenticated() && !(auth instanceof AnonymousAuthenticationToken) && ((UserDetailsImpl) auth.getPrincipal()).getUser().getEmail().equals(login)) {
             return true;
         }
         if (!userService.emailIsUnique(login)) {

@@ -25,16 +25,16 @@ public class SignUpController {
     UserService userService;
 
     @GetMapping("/reg")
-    public String getRegPage(Authentication authentication){
-        if(authentication !=null){
+    public String getRegPage(Authentication authentication) {
+        if (authentication != null) {
             return "redirect:/profile";
         }
         return "reg";
     }
 
     @PostMapping("/reg")
-    public String regUser(@Valid UserForm userForm, BindingResult result, ModelMap modelMap){
-        if(result.hasErrors()){
+    public String regUser(@Valid UserForm userForm, BindingResult result, ModelMap modelMap) {
+        if (result.hasErrors()) {
             modelMap.addAttribute("error", result.getFieldError().getDefaultMessage());
             return "/reg";
         }

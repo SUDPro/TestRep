@@ -17,11 +17,11 @@ public class AuthController {
     UserService userService;
 
     @GetMapping("/auth")
-    public String getAuthPage(Authentication authentication, ModelMap modelMap, HttpServletRequest request){
-        if(authentication != null){
+    public String getAuthPage(Authentication authentication, ModelMap modelMap, HttpServletRequest request) {
+        if (authentication != null) {
             return "redirect:/profile";
         }
-        if (request.getParameterMap().containsKey("error")){
+        if (request.getParameterMap().containsKey("error")) {
             modelMap.addAttribute("error", true);
         }
         return "auth";

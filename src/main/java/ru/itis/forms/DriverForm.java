@@ -14,7 +14,7 @@ import javax.validation.constraints.Size;
 @NoArgsConstructor
 @Builder
 public class DriverForm {
-    @Digits(integer = 11, fraction = 0, message ="No more than 11 characters")
+    @Digits(integer = 11, fraction = 0, message = "No more than 11 characters")
     private Long license;
     @UniqueDriverName
     private String name;

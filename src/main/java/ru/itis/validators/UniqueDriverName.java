@@ -9,7 +9,10 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 @Constraint(validatedBy = UniqueDriverValidator.class)
 public @interface UniqueDriverName {
+
     String message() default "Name is already in use";
+
     Class<?>[] groups() default {};
+
     Class<? extends Payload>[] payload() default {};
 }
