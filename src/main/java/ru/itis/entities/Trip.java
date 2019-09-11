@@ -20,6 +20,8 @@ public class Trip {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Temporal(TemporalType.DATE)
     private Date date;
     private String start;
     private String finish;
