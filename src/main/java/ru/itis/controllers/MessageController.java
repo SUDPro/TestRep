@@ -72,13 +72,9 @@ public class MessageController {
 
     @GetMapping("/")
     public String getTestPage(){
-        return "redirect:/test";
+        return "redirect:/profile";
     }
-
-    @GetMapping("/test")
-    public String getTest(){
-        return "test";
-    }
+    
 
     @GetMapping(value = "/admin", params = {"roomId"})
     public String getOneChatPage(@RequestParam("roomId") String roomId, ModelMap modelMap){
