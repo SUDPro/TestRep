@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Configuration;
 import ru.itis.entities.Driver;
 import ru.itis.repository.postgres.DriverRepository;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
@@ -26,14 +27,14 @@ public class Cache {
     DriverRepository driverRepository;
 
     @Around("execution(* *..DriverService.getDriverName(..))")
-    public Optional<Driver> checkCache(ProceedingJoinPoint jp) {
+    public ArrayList<Driver> checkCache(ProceedingJoinPoint jp) {
         if (driverCache.containsKey(jp.getArgs()[0])) {
-            return Optional.ofNullable(driverCache.get(jp.getArgs()[0]));
+            return null;
         } else {
-            Optional<Driver> driverOptional = null;
+            ArrayList<Driver> driverOptional = null;
             try {
-                driverOptional = (Optional<Driver>) jp.proceed(jp.getArgs());
-                driverOptional.ifPresent(driver -> driverCache.put(driver.getId(), driver));
+                driverOptional = (ArrayList<Driver>) jp.proceed(jp.getArgs());
+                driverOptional.forEach(driver -> driverCache.put(driver.getId(), driver));
             } catch (Throwable throwable) {
                 throwable.printStackTrace();
             }
