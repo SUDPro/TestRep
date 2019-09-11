@@ -31,4 +31,22 @@ public class Cache {
     @Autowired
     DriverRepository driverRepository;
 
+    @Around("execution(* *..DriverService.getDriverName(..))")
+    public Optional<Driver> checkCache(ProceedingJoinPoint jp) {
+        if (driverCache.containsKey(jp.getArgs()[0])) {
+            return Optional.ofNullable(driverCache.get(jp.getArgs()[0]));
+        } else {
+            Optional<Driver> driverOptional = null;
+            try {
+                driverOptional = (Optional<Driver>) jp.proceed(jp.getArgs());
+                driverOptional.ifPresent(driver -> driverCache.put(driver.getId(), driver));
+            } catch (Throwable throwable) {
+                throwable.printStackTrace();
+            }
+            return driverOptional;
+        }
+    }
+    
+
+
 }
