@@ -4,6 +4,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import ru.itis.entities.Trip;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -15,5 +16,9 @@ public interface TripRepository extends JpaRepository<Trip, Long> {
     Optional<Trip> findAllById(Long id);
 
     Optional<Trip> findByName(String name);
+
+    List<Trip> findAllByDateBefore(Date date);
+
+    List<Trip> findAllByOpenTrue();
 
 }

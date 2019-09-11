@@ -9,6 +9,7 @@ import ru.itis.validators.UniqueTripName;
 
 import javax.persistence.Column;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.Future;
 import java.util.Date;
 
 @NoArgsConstructor
@@ -23,5 +24,7 @@ public class TripForm {
     @UniqueTripName
     private String name;
     private String driver;
+
+    @Future(message = "Check date")
     private Date date;
 }

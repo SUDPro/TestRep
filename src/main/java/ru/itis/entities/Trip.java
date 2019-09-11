@@ -29,6 +29,7 @@ public class Trip {
 
     @ManyToOne
     private Driver driver;
+    private Boolean open;
 
 
 }

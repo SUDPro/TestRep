@@ -14,4 +14,8 @@ public interface TripService {
     void save(TripForm form);
 
     boolean nameIsUnique(String name);
+
+    void closeTripsForApplicationsWithOverDueDeadline();
+
+    List<Trip> showOnlyOpenTrips();
 }

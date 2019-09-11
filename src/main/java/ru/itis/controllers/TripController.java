@@ -52,7 +52,7 @@ public class TripController {
 
     @GetMapping("/trips")
     public String getTripsPage(ModelMap modelMap) {
-        modelMap.addAttribute("trips", tripService.findAll());
+        modelMap.addAttribute("trips", tripService.showOnlyOpenTrips());
         return "TripList";
     }
 
