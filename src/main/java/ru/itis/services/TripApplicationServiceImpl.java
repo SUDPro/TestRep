@@ -32,11 +32,22 @@ public class TripApplicationServiceImpl implements TripApplicationsService {
 
     @Override
     public boolean save(StudentApplication application) {
-        if (!repository.findByUserAndAndTrip(application.getUser(), application.getTrip()).isPresent()){
+        if (!repository.findByUserAndTrip(application.getUser(), application.getTrip()).isPresent()){
             repository.save(application);
             return true;
         } else {
             System.out.println("Student is registered");
+            return false;
+        }
+    }
+
+    @Override
+    public boolean delete(StudentApplication application) {
+        if (repository.findByUserAndTrip(application.getUser(), application.getTrip()).isPresent()){
+            repository.deleteById(repository.findByUserAndTrip(application.getUser(), application.getTrip()).get().getId());
+            return true;
+        } else {
+            System.out.println("Student is deleted");
             return false;
         }
     }

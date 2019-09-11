@@ -18,8 +18,9 @@ Finish ${trip.getFinish()}
     <br>
 </#if>
 <form method="post">
-    <input name="apply" type="hidden">
-    <input type="submit">
+    <input type="submit" style="color: #4CAF50" name="apply" placeholder="Присоединиться"/>
+
+    <input style="color: red" type="submit" name="decline" placeholder="Отказаться"/>
 </form>
 <br>
 Names/ Addreses

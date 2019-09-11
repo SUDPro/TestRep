@@ -14,5 +14,6 @@ public interface StudentApplicationRepository extends JpaRepository<StudentAppli
 
     List<StudentApplication> findAllByTrip(Trip trip);
 
-    Optional<StudentApplication> findByUserAndAndTrip(User user, Trip trip);
+    Optional<StudentApplication> findByUserAndTrip(User user, Trip trip);
+
 }

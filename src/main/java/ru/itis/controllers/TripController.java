@@ -69,7 +69,25 @@ public class TripController {
                 .user(((UserDetailsImpl)(auth.getPrincipal())).getUser())
                 .build();
         if (!service.save(application)){
-            modelMap.addAttribute("error", "You have already submitted an application");
+            modelMap.addAttribute("users", service.findAllByTripId(id));
+            modelMap.addAttribute("trip", tripService.findById(id));
+            modelMap.addAttribute("error", "You have already submitted your application");
+            return "oneTrip";
+        }
+
+        return "redirect:/trip/"+ id;
+    }
+
+    @PostMapping(value = "/trip/{id}", params = {"decline"})
+    public String applyDelete(@PathVariable Long id, Authentication auth, ModelMap modelMap){
+        StudentApplication application = StudentApplication.builder()
+                .trip(tripService.findById(id))
+                .user(((UserDetailsImpl)(auth.getPrincipal())).getUser())
+                .build();
+        if (!service.delete(application)){
+            modelMap.addAttribute("users", service.findAllByTripId(id));
+            modelMap.addAttribute("trip", tripService.findById(id));
+            modelMap.addAttribute("error", "You have already removed your application");
             return "oneTrip";
         }
 
