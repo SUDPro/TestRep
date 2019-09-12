@@ -8,11 +8,11 @@
 </head>
 <body>
 <nav class="site-header sticky-top py-1" style="background: #f1f1f1 !important;">
-        <div class="container d-flex flex-column flex-md-row justify-content-between">
-            <a class="py-2 d-none d-md-inline-block" href="/trips">Trips</a>
-            <a class="py-2 d-none d-md-inline-block" href="/auth">Sign in</a>
-            <a class="py-2 d-none d-md-inline-block" href="/reg">Registration</a>
-        </div>
+    <div class="container d-flex flex-column flex-md-row justify-content-between">
+        <a class="py-2 d-none d-md-inline-block" href="/trips">Trips</a>
+        <a class="py-2 d-none d-md-inline-block" href="/auth">Sign in</a>
+        <a class="py-2 d-none d-md-inline-block" href="/reg">Registration</a>
+    </div>
 </nav>
 <form method="post">
     <div class="container">
@@ -34,7 +34,7 @@
     </div>
 
     <div class="container signin">
-        <p>Don't have an account? <a href="/reg">Registration</a>.</p>
+        <p>Don't have an account? <a href="/reg">Registration</a></p>
     </div>
 </form>
 </body>
