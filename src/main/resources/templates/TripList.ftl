@@ -12,38 +12,38 @@
     <#if user??>
     <#if user.getRole() == "STUDENT">
     <div class="container d-flex flex-column flex-md-row justify-content-between">
-        <a class="py-2 d-none d-md-inline-block" href="/trips">Trips</a>
-        <a class="py-2 d-none d-md-inline-block" href="/profile">Profile</a>
-        <a class="py-2 d-none d-md-inline-block" href="/logout">Exit</a>
+        <a class="py-2 d-none d-md-inline-block" href="/trips">Поездки</a>
+        <a class="py-2 d-none d-md-inline-block" href="/profile">Профиль</a>
+        <a class="py-2 d-none d-md-inline-block" href="/logout">Выход</a>
     </div>
     </#if>
     <#if user.getRole() == "ADMIN">
         <div class="container d-flex flex-column flex-md-row justify-content-between">
-            <a class="py-2 d-none d-md-inline-block" href="/trips">Trips</a>
-            <a class="py-2 d-none d-md-inline-block" href="/profile">Profile</a>
-            <a class="py-2 d-none d-md-inline-block" href="/new_driver">Add driver</a>
-            <a class="py-2 d-none d-md-inline-block" href="/new_trip">Add trip</a>
-            <a class="py-2 d-none d-md-inline-block" href="/admin">Support chats</a>
-            <a class="py-2 d-none d-md-inline-block" href="/logout">Exit</a>
+            <a class="py-2 d-none d-md-inline-block" href="/trips">Поездки</a>
+            <a class="py-2 d-none d-md-inline-block" href="/profile">Профиль</a>
+            <a class="py-2 d-none d-md-inline-block" href="/new_driver">Добавить водителя</a>
+            <a class="py-2 d-none d-md-inline-block" href="/new_trip">Добавить поездку</a>
+            <a class="py-2 d-none d-md-inline-block" href="/admin">Чаты поддержки</a>
+            <a class="py-2 d-none d-md-inline-block" href="/logout">Выход</a>
         </div>
     </#if>
     <#else>
         <div class="container d-flex flex-column flex-md-row justify-content-between">
-            <a class="py-2 d-none d-md-inline-block" href="/trips">Trips</a>
-            <a class="py-2 d-none d-md-inline-block" href="/auth">Sign in</a>
-            <a class="py-2 d-none d-md-inline-block" href="/reg">Registration</a>
+            <a class="py-2 d-none d-md-inline-block" href="/trips">Поездки</a>
+            <a class="py-2 d-none d-md-inline-block" href="/auth">Войти</a>
+            <a class="py-2 d-none d-md-inline-block" href="/reg">Регистрация</a>
         </div>
     </#if>
 </nav>
-<H1>Timetable</H1>
+<H1>Расписание</H1>
 <TABLE class="myTimetable">
     <THEAD>
     <TR>
-        <TH>Name</TH>
-        <TH>Start</TH>
-        <TH>Finish</TH>
-        <TH>Driver</TH>
-        <TH>Date</TH>
+        <TH>Имя</TH>
+        <TH>Адрес(СТАРТ)</TH>
+        <TH>Адрес(ФИНИШ)</TH>
+        <TH>Водитель</TH>
+        <TH>Дата</TH>
     </TR>
     </THEAD>
     <TBODY>

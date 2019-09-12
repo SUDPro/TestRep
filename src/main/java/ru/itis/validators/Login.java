@@ -10,7 +10,7 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Login {
 
-    String message() default "Email is already in use";
+    String message() default "Это email уже используется";
 
     Class<?>[] groups() default {};
 

@@ -8,18 +8,18 @@
 </head>
 <body>
 <nav class="site-header sticky-top py-1" style="background: #f1f1f1 !important;">
-            <div class="container d-flex flex-column flex-md-row justify-content-between">
-                <a class="py-2 d-none d-md-inline-block" href="/trips">Trips</a>
-                <a class="py-2 d-none d-md-inline-block" href="/profile">Profile</a>
-                <a class="py-2 d-none d-md-inline-block" href="/new_driver">Add driver</a>
-                <a class="py-2 d-none d-md-inline-block" href="/new_trip">Add trip</a>
-                <a class="py-2 d-none d-md-inline-block" href="/admin">Support chats</a>
-                <a class="py-2 d-none d-md-inline-block" href="/logout">Exit</a>
-            </div>
+    <div class="container d-flex flex-column flex-md-row justify-content-between">
+        <a class="py-2 d-none d-md-inline-block" href="/trips">Поездки</a>
+        <a class="py-2 d-none d-md-inline-block" href="/profile">Профиль</a>
+        <a class="py-2 d-none d-md-inline-block" href="/new_driver">Добавить водителя</a>
+        <a class="py-2 d-none d-md-inline-block" href="/new_trip">Добавить поездку</a>
+        <a class="py-2 d-none d-md-inline-block" href="/admin">Чаты поддержки</a>
+        <a class="py-2 d-none d-md-inline-block" href="/logout">Выход</a>
+    </div>
 </nav>
 <form method="post">
     <div class="container">
-        <h1>New trip</h1>
+        <h1>Новая поездка</h1>
         <hr>
         <#if errors??>
             <#list errors as error>
@@ -27,24 +27,24 @@
                 <br>
             </#list>
         </#if>
-        <label ><b>Trip</b></label>
-        <input type="text" placeholder="Name" name="name" required>
+        <label ><b>Название</b></label>
+        <input type="text" placeholder="Название" name="name" required>
 
-        <label ><b>Start</b></label>
-        <input type="text" placeholder="Start address" name="start" required>
+        <label ><b>Старт</b></label>
+        <input type="text" placeholder="Адрес начала поездки" name="start" required>
 
-        <label ><b>Finish</b></label>
-        <input type="text" placeholder="Finish address " name="finish" required>
+        <label ><b>Финиш</b></label>
+        <input type="text" placeholder="Адрес конца поездки" name="finish" required>
 
-        <label ><b>Date</b></label>
-        <input type="date" placeholder="Date" id="date" name="date" required>
+        <label ><b>Дата</b></label>
+        <input type="date" placeholder="Дата" id="date" name="date" required>
 
-        <label ><b>Driver</b></label>
-        <input type="text" oninput="showDriverNames(event)" placeholder="Driver name" id="driver" name="driver" required>
+        <label><b>Водитель</b></label>
+        <input type="text" oninput="showDriverNames(event)" placeholder="Имя водителя" id="driver" name="driver" required>
         <div id="options">
         </div>
 
-        <button type="submit" class="registerbtn">Add new trip</button>
+        <button type="submit" class="registerbtn">Добавить новую поездку</button>
     </div>
 
 </form>

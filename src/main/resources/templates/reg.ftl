@@ -28,46 +28,45 @@
         </#if>
     <#else>
         <div class="container d-flex flex-column flex-md-row justify-content-between">
-            <a class="py-2 d-none d-md-inline-block" href="/trips">Trips</a>
-            <a class="py-2 d-none d-md-inline-block" href="/auth">Sign in</a>
-            <a class="py-2 d-none d-md-inline-block" href="/reg">Registration</a>
+            <a class="py-2 d-none d-md-inline-block" href="/trips">Поездки</a>
+            <a class="py-2 d-none d-md-inline-block" href="/auth">Войти</a>
+            <a class="py-2 d-none d-md-inline-block" href="/reg">Регистрация</a>
         </div>
     </#if>
 </nav>
 <form method="post">
     <div class="container">
-        <h1>Register</h1>
-        <p>Please fill in this form to create an account.</p>
+        <h1>Регистрация</h1>
         <hr>
         <#if error??>
             <div class="alert alert-danger" role="alert">
                 ${error}
             </div>
         </#if>
-        <label ><b>Name</b></label>
-        <input type="text" placeholder="Enter Name" name="name" required>
+        <label ><b>Имя</b></label>
+        <input type="text" placeholder="Введите имя" name="name" required>
 
-        <label ><b>Surname</b></label>
-        <input type="text" placeholder="Enter Surname" name="surname" required>
+        <label ><b>Фамилия</b></label>
+        <input type="text" placeholder="Введите фамилию" name="surname" required>
 
         <label ><b>Email</b></label>
-        <input type="email" placeholder="Enter Email" name="email" required>
+        <input type="email" placeholder="Введите еmail" name="email" required>
 
-        <label ><b>Password</b></label>
-        <input type="password" placeholder="Enter Password" name="password" required>
+        <label ><b>Пароль</b></label>
+        <input type="password" placeholder="Введите пароль" name="password" required>
 
-        <label ><b>Birth</b></label>
-        <input type="date" placeholder="Enter Password" name="date" required>
+        <label ><b>Дата рождения</b></label>
+        <input type="date" placeholder="Введите дату рождения" name="date" required>
 
-        <label ><b>Address</b></label>
-        <input type="text" placeholder="Enter full address. Ex: Kazan, Pushkina st, 28" name="address" required>
+        <label ><b>Адрес</b></label>
+        <input type="text" placeholder="Введите полный адрес. Прим: Казань, ул. Пушкина, 28" name="address" required>
 
 
-        <button type="submit" class="registerbtn">Register</button>
+        <button type="submit" class="registerbtn">Зарегистрироваться</button>
     </div>
 
     <div class="container signin">
-        <p>Already have an account? <a href="/auth">Sign in</a>.</p>
+        <p>У вас уже есть аккаунт? <a href="/auth">Войти</a>.</p>
     </div>
 </form>
 </body>

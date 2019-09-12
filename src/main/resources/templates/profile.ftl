@@ -50,19 +50,19 @@
 
         <#if user.getRole() == "STUDENT">
             <div class="container d-flex flex-column flex-md-row justify-content-between">
-                <a class="py-2 d-none d-md-inline-block" href="/trips">Trips</a>
-                <a class="py-2 d-none d-md-inline-block" href="/profile">Profile</a>
-                <a class="py-2 d-none d-md-inline-block" href="/logout">Exit</a>
+                <a class="py-2 d-none d-md-inline-block" href="/trips">Поездки</a>
+                <a class="py-2 d-none d-md-inline-block" href="/profile">Профиль</a>
+                <a class="py-2 d-none d-md-inline-block" href="/logout">Выход</a>
             </div>
         </#if>
         <#if user.getRole() == "ADMIN">
             <div class="container d-flex flex-column flex-md-row justify-content-between">
-                <a class="py-2 d-none d-md-inline-block" href="/trips">Trips</a>
-                <a class="py-2 d-none d-md-inline-block" href="/profile">Profile</a>
-                <a class="py-2 d-none d-md-inline-block" href="/new_driver">Add driver</a>
-                <a class="py-2 d-none d-md-inline-block" href="/new_trip">Add trip</a>
-                <a class="py-2 d-none d-md-inline-block" href="/admin">Support chats</a>
-                <a class="py-2 d-none d-md-inline-block" href="/logout">Exit</a>
+                <a class="py-2 d-none d-md-inline-block" href="/trips">Поездки</a>
+                <a class="py-2 d-none d-md-inline-block" href="/profile">Профиль</a>
+                <a class="py-2 d-none d-md-inline-block" href="/new_driver">Добавить водителя</a>
+                <a class="py-2 d-none d-md-inline-block" href="/new_trip">Добавить поездку</a>
+                <a class="py-2 d-none d-md-inline-block" href="/admin">Чаты поддержки</a>
+                <a class="py-2 d-none d-md-inline-block" href="/logout">Выход</a>
             </div>
         </#if>
 
@@ -74,8 +74,8 @@
                 <div class="col-md-4 col-sm-4" style="padding-left: 20px;">
                     <div class="design-development one">
                         <i class="material-icons">lightbulb_outline</i>
-                        <h2>New Trip</h2>
-                        <p>Here u can add new trip</p>
+                        <h2>Новая поездка</h2>
+                        <p>Здесь вы можете создать новую поездку</p>
                     </div>
                 </div>
             </a>
@@ -83,8 +83,8 @@
                 <div class="col-md-4 col-sm-4">
                     <div class="design-development two">
                         <i class="material-icons">color_lens</i>
-                        <h2>New Driver</h2>
-                        <p>Here u can add new driver</p>
+                        <h2>Добавить водителя</h2>
+                        <p>Здесь вы можете добавить водителя</p>
                     </div>
                 </div>
             </a>
@@ -92,8 +92,8 @@
                 <div class="col-md-4 col-sm-4" style="padding-right: 0">
                     <div class="design-development three">
                         <i class="material-icons">developer_board</i>
-                        <h2>Support chats</h2>
-                        <p>Here support chats</p>
+                        <h2>Чаты поддержки</h2>
+                        <p>Здесь вы можете ответить на сообщения</p>
                     </div>
                 </div>
             </a>
@@ -104,15 +104,15 @@
 
         <div style="horiz-align: center; margin-left: 40%" class="side-bar">
             <!-- Professional Details -->
-                    <h1> <span> Name: </span> ${user.getName()}  </h1>
+                    <h1> <span> Имя: </span> ${user.getName()}  </h1>
 
-                    <h1> <span> Surname: </span> ${user.getSurname()} </h1>
+                    <h1> <span> Фамилия: </span> ${user.getSurname()} </h1>
 
-                    <h1> <span> Birth date: </span>${user.getDate()}</h1>
+                    <h1> <span> Дата рождения: </span>${user.getDate()}</h1>
 
-                    <h1> <span> Email: </span> ${user.getSurname()} </h1>
+                    <h1> <span> Email: </span> ${user.getEmail()} </h1>
 
-                    <h1> <span>Address: </span> ${user.getAddress()} </h1>
+                    <h1> <span> Адрес: </span> ${user.getAddress()} </h1>
 
         </div>
     <br>
@@ -146,7 +146,7 @@
                     <h2>Чат <span id="room-id-display"></span></h2>
                 </div>
                 <div class="connecting">
-                    Connecting...
+                    Соединяем...
                 </div>
                 <div class="message-box">
                     <ul style="overflow: hidden; width: 300px; height: 200px;" id="messageArea">
@@ -158,7 +158,7 @@
                         <div class="input-group clearfix">
                             <input type="text" id="message" placeholder="Type a message..."
                                    autocomplete="off" class="form-control"/>
-                            <button type="submit" class="primary">Send</button>
+                            <button type="submit" class="primary">Отправить</button>
                         </div>
                     </div>
                 </form>

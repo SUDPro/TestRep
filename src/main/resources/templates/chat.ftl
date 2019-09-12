@@ -9,14 +9,14 @@
 </head>
 <body>
 <nav class="site-header sticky-top py-1" style="background: #f1f1f1 !important;">
-      <div class="container d-flex flex-column flex-md-row justify-content-between">
-        <a class="py-2 d-none d-md-inline-block" href="/trips">Trips</a>
-        <a class="py-2 d-none d-md-inline-block" href="/profile">Profile</a>
-        <a class="py-2 d-none d-md-inline-block" href="/new_driver">Add driver</a>
-        <a class="py-2 d-none d-md-inline-block" href="/new_trip">Add trip</a>
-        <a class="py-2 d-none d-md-inline-block" href="/admin">Support chats</a>
-        <a class="py-2 d-none d-md-inline-block" href="/logout">Exit</a>
-      </div>
+  <div class="container d-flex flex-column flex-md-row justify-content-between">
+    <a class="py-2 d-none d-md-inline-block" href="/trips">Поездки</a>
+    <a class="py-2 d-none d-md-inline-block" href="/profile">Профиль</a>
+    <a class="py-2 d-none d-md-inline-block" href="/new_driver">Добавить водителя</a>
+    <a class="py-2 d-none d-md-inline-block" href="/new_trip">Добавить поездку</a>
+    <a class="py-2 d-none d-md-inline-block" href="/admin">Чаты поддержки</a>
+    <a class="py-2 d-none d-md-inline-block" href="/logout">Выход</a>
+  </div>
 </nav>
 <noscript>
   <h2>Sorry! Your browser doesn't support Javascript</h2>
@@ -29,7 +29,7 @@
       <h2>Chat <span id="room-id-display"></span></h2>
     </div>
     <div class="connecting">
-      Connecting...
+      Соединяем...
     </div>
     <ul id="messageArea">
     <#list messages as message>
@@ -42,9 +42,9 @@
     <form id="messageForm" name="messageForm" nameForm="messageForm">
       <div class="form-group">
         <div class="input-group clearfix">
-          <input type="text" id="message" placeholder="Type a message..."
+          <input type="text" id="message" placeholder="Введите сообщение..."
                  autocomplete="off" class="form-control"/>
-          <button type="submit" class="primary">Send</button>
+          <button type="submit" class="primary">Отправить</button>
         </div>
       </div>
     </form>

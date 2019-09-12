@@ -9,32 +9,32 @@
 <body>
 <nav class="site-header sticky-top py-1" style="background: #f1f1f1 !important;">
     <div class="container d-flex flex-column flex-md-row justify-content-between">
-        <a class="py-2 d-none d-md-inline-block" href="/trips">Trips</a>
-        <a class="py-2 d-none d-md-inline-block" href="/auth">Sign in</a>
-        <a class="py-2 d-none d-md-inline-block" href="/reg">Registration</a>
+        <a class="py-2 d-none d-md-inline-block" href="/trips">Поездки</a>
+        <a class="py-2 d-none d-md-inline-block" href="/auth">Войти</a>
+        <a class="py-2 d-none d-md-inline-block" href="/reg">Регистрация</a>
     </div>
 </nav>
 <form method="post">
     <div class="container">
-        <h1>Authentication</h1>
+        <h1>Авторизация</h1>
         <hr>
         <#if error??>
             <div class="alert alert-danger" role="alert">
-                Wrong login or password!
+                Неверный логин или пароль!
             </div>
         </#if>
         <label><b>Email</b></label>
-        <input type="email" placeholder="Enter Email" name="email" required>
+        <input type="email" placeholder="Введите email" name="email" required>
 
-        <label><b>Password</b></label>
-        <input type="password" placeholder="Enter Password" name="password" required>
+        <label><b>Пароль</b></label>
+        <input type="password" placeholder="Введите пароль" name="password" required>
 
 
-        <button type="submit" class="registerbtn">Register</button>
+        <button type="submit" class="registerbtn">Войти</button>
     </div>
 
     <div class="container signin">
-        <p>Don't have an account? <a href="/reg">Registration</a></p>
+        <p>Нет аккаунта? <a href="/reg">Зарегистрироваться</a></p>
     </div>
 </form>
 </body>

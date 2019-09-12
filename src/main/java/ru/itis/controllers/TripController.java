@@ -83,7 +83,7 @@ public class TripController {
             modelMap.addAttribute("user", ((UserDetailsImpl) (auth.getPrincipal())).getUser());
             modelMap.addAttribute("users", service.findAllByTripId(id));
             modelMap.addAttribute("trip", tripService.findById(id));
-            modelMap.addAttribute("error", "You have already submitted your application");
+            modelMap.addAttribute("error", "Вы уже записались на поездку!");
             return "oneTrip";
         }
 
@@ -100,7 +100,7 @@ public class TripController {
             modelMap.addAttribute("user", ((UserDetailsImpl) (auth.getPrincipal())).getUser());
             modelMap.addAttribute("users", service.findAllByTripId(id));
             modelMap.addAttribute("trip", tripService.findById(id));
-            modelMap.addAttribute("error", "You have already removed your application");
+            modelMap.addAttribute("error", "Вы уже отказались от поездки!");
             return "oneTrip";
         }
 

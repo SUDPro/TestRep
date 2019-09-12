@@ -10,7 +10,7 @@ import java.lang.annotation.*;
 @Constraint(validatedBy = UniqueDriverValidator.class)
 public @interface UniqueDriverName {
 
-    String message() default "Name is already in use";
+    String message() default "Это имя уже используется";
 
     Class<?>[] groups() default {};
 
