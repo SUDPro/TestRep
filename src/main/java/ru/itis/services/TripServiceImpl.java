@@ -38,6 +38,7 @@ public class TripServiceImpl implements TripService {
                 .finish(form.getFinish())
                 .driver(driverRepository.findByName(form.getDriver()).get())
                 .date(form.getDate())
+                .quota(form.getQuota())
                 .build();
         repository.save(trip);
     }

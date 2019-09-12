@@ -31,6 +31,8 @@ public class Trip {
 
     @ManyToOne
     private Driver driver;
+    private Integer quota;
+    private Integer inBus;
     private Boolean open;
 
 

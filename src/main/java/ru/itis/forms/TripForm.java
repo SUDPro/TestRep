@@ -24,6 +24,7 @@ public class TripForm {
     @UniqueTripName
     private String name;
     private String driver;
+    private Integer quota;
 
     @Future(message = "Check date")
     private Date date;

@@ -39,6 +39,9 @@
         <label ><b>Дата</b></label>
         <input type="date" placeholder="Дата" id="date" name="date" required>
 
+        <label ><b>Количество мест</b></label>
+        <input type="number" placeholder="Количество мест" id="quota" name="quota" required>
+
         <label><b>Водитель</b></label>
         <input type="text" oninput="showDriverNames(event)" placeholder="Имя водителя" id="driver" name="driver" required>
         <div id="options">

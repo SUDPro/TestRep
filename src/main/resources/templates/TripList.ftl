@@ -44,6 +44,7 @@
         <TH>Адрес(ФИНИШ)</TH>
         <TH>Водитель</TH>
         <TH>Дата</TH>
+        <<TH>Мест свободно</TH>
     </TR>
     </THEAD>
     <TBODY>
@@ -63,6 +64,9 @@
             </TD>
             <TD>
                 <div class="subject">${trip.getDate()} 7:00</div>
+            </TD>
+            <TD>
+                <div class="subject">${trip.getQuota() - trip.getInBus()} / ${trip.getQuota()} </div>
             </TD>
         </TR>
     </#list>
