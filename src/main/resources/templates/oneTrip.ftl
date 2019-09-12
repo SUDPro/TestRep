@@ -5,6 +5,7 @@
     </title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/timetable.css"/>
 </head>
 <body>
 <nav class="site-header sticky-top py-1" style="background: #f1f1f1 !important;">
@@ -34,31 +35,54 @@
         </div>
     </#if>
 </nav>
-TRIP ${trip.getName()}
-<br>
-Driver ${trip.getDriver().getName()}
-<br>
-START ${trip.getStart()}
-<br>
-Finish ${trip.getFinish()}
+<div style="horiz-align: center;" class="side-bar">
+    <!-- Professional Details -->
+    <h1> <span> Trip: </span> ${trip.getName()}  </h1>
+
+    <h1> <span> Driver: </span> ${trip.getDriver().getName()} </h1>
+
+    <h1> <span> Start: </span>${trip.getStart()}</h1>
+
+    <h1> <span> Finish: </span> ${trip.getFinish()}</h1>
+
+    <h1> <span> Passangers: </span></h1>
 
 <#if error??>
     <span class="alert-danger">${error}</span>
     <br>
 </#if>
 <form method="post">
-    <input type="submit" style="color: #4CAF50" name="apply" placeholder="Присоединиться"/>
+    <button type="submit" style="color: #4CAF50" name="apply">Присоединиться</button>
 
-    <input style="color: red" type="submit" name="decline" placeholder="Отказаться"/>
+    <button style="color: red" type="submit" name="decline"> Отказаться </button>
 </form>
 <br>
 Names/ Addreses
 <br>
-<#list users as user>
-    ${user.getName()} / ${user.getAddress()}
-    <br>
-</#list>
+<TABLE class="Timetable">
+    <THEAD>
+    <TR>
+        <TH>Name</TH>
+        <TH>Surname</TH>
+        <TH>Birt date</TH>
+    </TR>
+    </THEAD>
+    <TBODY>
+    <#list users as user>
+        <TR>
+            <TD>
+                <div class="subject"> ${user.getName()}</div>
+            </TD>
+            <TD>
+                <div class="subject"> ${user.getSurname()}</div>
+            </TD>
+            <TD>
+                <div class="subject"> ${user.getDate()}</div>
+            </TD>
 
-
+        </TR>
+    </#list>
+    </TBODY>
+</TABLE>
 </body>
 </html>

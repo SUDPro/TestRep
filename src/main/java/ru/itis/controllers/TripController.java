@@ -66,7 +66,8 @@ public class TripController {
     }
 
     @GetMapping("/trip/{id}")
-    public String getOneTrip(ModelMap modelMap, @PathVariable Long id) {
+    public String getOneTrip(ModelMap modelMap, @PathVariable Long id, Authentication auth) {
+        modelMap.addAttribute("user", ((UserDetailsImpl) (auth.getPrincipal())).getUser());
         modelMap.addAttribute("users", service.findAllByTripId(id));
         modelMap.addAttribute("trip", tripService.findById(id));
         return "oneTrip";
@@ -79,6 +80,7 @@ public class TripController {
                 .user(((UserDetailsImpl) (auth.getPrincipal())).getUser())
                 .build();
         if (!service.save(application)) {
+            modelMap.addAttribute("user", ((UserDetailsImpl) (auth.getPrincipal())).getUser());
             modelMap.addAttribute("users", service.findAllByTripId(id));
             modelMap.addAttribute("trip", tripService.findById(id));
             modelMap.addAttribute("error", "You have already submitted your application");
@@ -95,6 +97,7 @@ public class TripController {
                 .user(((UserDetailsImpl) (auth.getPrincipal())).getUser())
                 .build();
         if (!service.delete(application)) {
+            modelMap.addAttribute("user", ((UserDetailsImpl) (auth.getPrincipal())).getUser());
             modelMap.addAttribute("users", service.findAllByTripId(id));
             modelMap.addAttribute("trip", tripService.findById(id));
             modelMap.addAttribute("error", "You have already removed your application");

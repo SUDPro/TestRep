@@ -12,8 +12,8 @@
             type="text/javascript"></script>
     <style type="text/css">
          #map {
-            width: 40%;
-            height: 40%;
+            width: 100%;
+            height: 60%;
             margin: 0;
             padding: 0;
         }
@@ -47,7 +47,7 @@
 </head>
 <body>
 <nav class="site-header sticky-top py-1" style="background: #f1f1f1 !important;">
-    <#if user??>
+
         <#if user.getRole() == "STUDENT">
             <div class="container d-flex flex-column flex-md-row justify-content-between">
                 <a class="py-2 d-none d-md-inline-block" href="/trips">Trips</a>
@@ -65,20 +65,13 @@
                 <a class="py-2 d-none d-md-inline-block" href="/logout">Exit</a>
             </div>
         </#if>
-    <#else>
-        <div class="container d-flex flex-column flex-md-row justify-content-between">
-            <a class="py-2 d-none d-md-inline-block" href="/trips">Trips</a>
-            <a class="py-2 d-none d-md-inline-block" href="/auth">Sign in</a>
-            <a class="py-2 d-none d-md-inline-block" href="/reg">Registration</a>
-        </div>
-    </#if>
+
 </nav>
 <br>
 <#if user.getRole() == "ADMIN">
-    <div class="container">
-        <div class="row ">
+        <div class="row" style="display: inline; horiz-align: right; height: 50% !important; width: 100% !important;">
             <a href="/new_trip">
-                <div class="col-md-4 col-sm-4">
+                <div class="col-md-4 col-sm-4" style="padding-left: 20px;">
                     <div class="design-development one">
                         <i class="material-icons">lightbulb_outline</i>
                         <h2>New Trip</h2>
@@ -96,7 +89,7 @@
                 </div>
             </a>
             <a href="/admin">
-                <div class="col-md-4 col-sm-4">
+                <div class="col-md-4 col-sm-4" style="padding-right: 0">
                     <div class="design-development three">
                         <i class="material-icons">developer_board</i>
                         <h2>Support chats</h2>
@@ -105,16 +98,26 @@
                 </div>
             </a>
         </div>
-    </div>
 </#if>
 
 <#if user.getRole() == "STUDENT">
+
+        <div style="horiz-align: center; margin-left: 40%" class="side-bar">
+            <!-- Professional Details -->
+                    <h1> <span> Name: </span> ${user.getName()}  </h1>
+
+                    <h1> <span> Surname: </span> ${user.getSurname()} </h1>
+
+                    <h1> <span> Birth date: </span>${user.getDate()}</h1>
+
+                    <h1> <span> Email: </span> ${user.getSurname()} </h1>
+
+                    <h1> <span>Address: </span> ${user.getAddress()} </h1>
+
+        </div>
     <br>
-    <h5>It's student</h5>
-    <h4>${user.getName()}</h4>
-    <h4>${user.getAddress()}</h4>
-    <h4>${user.getDate()}</h4>
-    <div id="map"></div>
+    <br>
+    <div style="horiz-align: center" id="map"></div>
     <div class="msg_box" style="right:50px" rel="skp">
         <div class="msg_head">
             Поддержка
