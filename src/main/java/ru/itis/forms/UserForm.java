@@ -26,6 +26,6 @@ public class UserForm {
     String password;
     String address;
 
-    @Past
+    @Past(message = "Please, Enter a valid date of birth")
     Date date;
 }

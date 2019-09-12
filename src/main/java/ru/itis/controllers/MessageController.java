@@ -72,7 +72,7 @@ public class MessageController {
 
     @GetMapping("/")
     public String getTestPage() {
-        return "redirect:/profile";
+        return "redirect:/trips";
     }
 
     @GetMapping(value = "/admin", params = {"roomId"})

@@ -10,11 +10,14 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 import ru.itis.entities.StudentApplication;
+import ru.itis.entities.User;
 import ru.itis.forms.TripForm;
 import ru.itis.security.UserDetailsImpl;
 import ru.itis.services.TripApplicationsService;
 import ru.itis.services.TripService;
+import ru.itis.services.UserService;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -23,6 +26,9 @@ import java.util.stream.Collectors;
 
 @Controller
 public class TripController {
+
+    @Autowired
+    UserService userService;
 
     @Autowired
     TripService tripService;
@@ -51,8 +57,11 @@ public class TripController {
     }
 
     @GetMapping("/trips")
-    public String getTripsPage(ModelMap modelMap) {
+    public String getTripsPage(ModelMap modelMap, Authentication auth, HttpServletRequest request) {
         modelMap.addAttribute("trips", tripService.showOnlyOpenTrips());
+        if (auth != null && auth.isAuthenticated()) {
+            modelMap.addAttribute("user", ((UserDetailsImpl) (auth.getPrincipal())).getUser());
+        }
         return "TripList";
     }
 

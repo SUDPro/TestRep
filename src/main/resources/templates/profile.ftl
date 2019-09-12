@@ -11,9 +11,9 @@
     <script src="https://api-maps.yandex.ru/2.1/?apikey=<0f81e2ba-2097-4277-afdd-754647ceee0d>&lang=ru_RU"
             type="text/javascript"></script>
     <style type="text/css">
-        html, body, #map {
-            width: 70%;
-            height: 70%;
+         #map {
+            width: 40%;
+            height: 40%;
             margin: 0;
             padding: 0;
         }
@@ -31,6 +31,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script>
         function makeId(length) {
             var result = '';
@@ -44,6 +46,33 @@
     </script>
 </head>
 <body>
+<nav class="site-header sticky-top py-1" style="background: #f1f1f1 !important;">
+    <#if user??>
+        <#if user.getRole() == "STUDENT">
+            <div class="container d-flex flex-column flex-md-row justify-content-between">
+                <a class="py-2 d-none d-md-inline-block" href="/trips">Trips</a>
+                <a class="py-2 d-none d-md-inline-block" href="/profile">Profile</a>
+                <a class="py-2 d-none d-md-inline-block" href="/logout">Exit</a>
+            </div>
+        </#if>
+        <#if user.getRole() == "ADMIN">
+            <div class="container d-flex flex-column flex-md-row justify-content-between">
+                <a class="py-2 d-none d-md-inline-block" href="/trips">Trips</a>
+                <a class="py-2 d-none d-md-inline-block" href="/profile">Profile</a>
+                <a class="py-2 d-none d-md-inline-block" href="/new_driver">Add driver</a>
+                <a class="py-2 d-none d-md-inline-block" href="/new_trip">Add trip</a>
+                <a class="py-2 d-none d-md-inline-block" href="/admin">Support chats</a>
+                <a class="py-2 d-none d-md-inline-block" href="/logout">Exit</a>
+            </div>
+        </#if>
+    <#else>
+        <div class="container d-flex flex-column flex-md-row justify-content-between">
+            <a class="py-2 d-none d-md-inline-block" href="/trips">Trips</a>
+            <a class="py-2 d-none d-md-inline-block" href="/auth">Sign in</a>
+            <a class="py-2 d-none d-md-inline-block" href="/reg">Registration</a>
+        </div>
+    </#if>
+</nav>
 <br>
 <#if user.getRole() == "ADMIN">
     <div class="container">
@@ -53,7 +82,7 @@
                     <div class="design-development one">
                         <i class="material-icons">lightbulb_outline</i>
                         <h2>New Trip</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temp</p>
+                        <p>Here u can add new trip</p>
                     </div>
                 </div>
             </a>
@@ -62,7 +91,7 @@
                     <div class="design-development two">
                         <i class="material-icons">color_lens</i>
                         <h2>New Driver</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temp</p>
+                        <p>Here u can add new driver</p>
                     </div>
                 </div>
             </a>
@@ -71,7 +100,7 @@
                     <div class="design-development three">
                         <i class="material-icons">developer_board</i>
                         <h2>Support chats</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temp</p>
+                        <p>Here support chats</p>
                     </div>
                 </div>
             </a>

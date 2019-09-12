@@ -4,15 +4,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
   <title>Chat Application</title>
   <link rel="stylesheet" href="/css/chat.css" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
+<nav class="site-header sticky-top py-1" style="background: #f1f1f1 !important;">
+      <div class="container d-flex flex-column flex-md-row justify-content-between">
+        <a class="py-2 d-none d-md-inline-block" href="/trips">Trips</a>
+        <a class="py-2 d-none d-md-inline-block" href="/profile">Profile</a>
+        <a class="py-2 d-none d-md-inline-block" href="/new_driver">Add driver</a>
+        <a class="py-2 d-none d-md-inline-block" href="/new_trip">Add trip</a>
+        <a class="py-2 d-none d-md-inline-block" href="/admin">Support chats</a>
+        <a class="py-2 d-none d-md-inline-block" href="/logout">Exit</a>
+      </div>
+</nav>
 <noscript>
   <h2>Sorry! Your browser doesn't support Javascript</h2>
 </noscript>
 <input id="roomId" hidden value="${roomId}">
 <input id="name" hidden value="Оператор">
 <div id="chat-page">
-  <a href="/admin" style="color: white">Назад</a>
   <div class="chat-container">
     <div class="chat-header">
       <h2>Chat <span id="room-id-display"></span></h2>
