@@ -53,11 +53,17 @@
     <span class="alert-danger">${error}</span>
     <br>
 </#if>
+    <#if user.getRole() == "STUDENT">
+        <#if trip.open>
 <form method="post">
     <button type="submit" style="background-color: #4CAF50" name="apply">Присоединиться</button>
 
     <button style="background-color: red" type="submit" name="decline"> Отказаться </button>
 </form>
+        <#else>
+            <span class="alert-danger">Поездка закрыта!</span>
+        </#if>
+    </#if>
 <TABLE class="Timetable">
     <THEAD>
     <TR>
