@@ -32,17 +32,21 @@ public class TripApplicationServiceImpl implements TripApplicationsService {
     }
 
     @Override
-    public boolean save(StudentApplication application) {
+    public String save(StudentApplication application) {
         if (!repository.findByUserAndTrip(application.getUser(), application.getTrip()).isPresent()) {
-            repository.save(application);
             Trip trip = tripRepository.findById(application.getTrip().getId()).get();
             Integer inBus = tripRepository.findAllById(application.getTrip().getId()).get().getInBus();
-            trip.setInBus(inBus + 1);
-            tripRepository.save(trip);
-            return true;
+            if (trip.getQuota() > inBus){
+                repository.save(application);
+                trip.setInBus(inBus + 1);
+                tripRepository.save(trip);
+                return null;
+            } else {
+                return "Извините, автобус заполнен!";
+            }
         } else {
             System.out.println("Student is registered");
-            return false;
+            return "Вы уже зарегестрированы";
         }
     }
 

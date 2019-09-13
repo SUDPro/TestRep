@@ -79,11 +79,11 @@ public class TripController {
                 .trip(tripService.findById(id))
                 .user(((UserDetailsImpl) (auth.getPrincipal())).getUser())
                 .build();
-        if (!service.save(application)) {
+        if (service.save(application) != null) {
             modelMap.addAttribute("user", ((UserDetailsImpl) (auth.getPrincipal())).getUser());
             modelMap.addAttribute("users", service.findAllByTripId(id));
             modelMap.addAttribute("trip", tripService.findById(id));
-            modelMap.addAttribute("error", "Вы уже записались на поездку!");
+            modelMap.addAttribute("error", service.save(application));
             return "oneTrip";
         }
 

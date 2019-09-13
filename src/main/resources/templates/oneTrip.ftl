@@ -45,7 +45,7 @@
 
     <h1> <span> Адрес(ФИНИШ): </span> ${trip.getFinish()}</h1>
 
-    <h1> <span> Мест свободно: </span> $${trip.getQuota() - trip.getInBus()} / ${trip.getQuota()}</h1>
+    <h1> <span> Мест свободно: </span> ${trip.getQuota() - trip.getInBus()} / ${trip.getQuota()}</h1>
 
     <h1> <span> Пассажиры: </span></h1>
 

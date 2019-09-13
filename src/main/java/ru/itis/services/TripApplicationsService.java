@@ -9,7 +9,7 @@ public interface TripApplicationsService {
 
     List<User> findAllByTripId(Long id);
 
-    boolean save(StudentApplication application);
+    String save(StudentApplication application);
 
     boolean delete(StudentApplication application);
 }
