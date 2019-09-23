@@ -65,7 +65,6 @@ public class MessageController {
 
     @GetMapping("/admin")
     public String getAdminPage(ModelMap modelMap, Authentication auth, HttpServletRequest request) {
-        request.isUserInRole("ADMIN");
         modelMap.addAttribute("messages", messageService.findChatMessageByRoomsId(messageService.findAllRoomId()));
         return "admin";
     }
