@@ -18,4 +18,6 @@ public interface TripService {
     void closeTripsForApplicationsWithOverDueDeadline();
 
     List<Trip> showOnlyOpenTrips();
+
+    String getCoordinates(String address);
 }

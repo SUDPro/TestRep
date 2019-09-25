@@ -26,12 +26,12 @@ public class MyLogger {
         this.logger = LoggerFactory.getLogger(MyLogger.class);
     }
 
-    @Before("execution (* *..UserService.save(..))")
-    public void logSignUp(JoinPoint jp) {
-        logsRepository.save(Log.builder()
-                .date(new Date())
-                .info("New user " + Arrays.toString(jp.getArgs()) + "registered")
-                .build());
-    }
+//    @Before("execution (* *..UserService.save(..))")
+//    public void logSignUp(JoinPoint jp) {
+//        logsRepository.save(Log.builder()
+//                .date(new Date())
+//                .info("New user " + Arrays.toString(jp.getArgs()) + "registered")
+//                .build());
+//    }
 }
 

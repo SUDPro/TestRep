@@ -39,4 +39,5 @@ public class User {
 
     @OneToMany
     private Set<StudentApplication> applicationSet;
+    private String coordinates;
 }

@@ -16,4 +16,6 @@ public interface UserService {
     User getById(Long id);
 
     boolean emailIsUnique(String login);
+
+    String getCoordinates(String address);
 }

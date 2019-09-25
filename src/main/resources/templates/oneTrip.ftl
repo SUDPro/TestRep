@@ -65,7 +65,7 @@
         </#if>
     </#if>
     <#if user.getRole() == "ADMIN">
-      <a href=http://gen.ulnar.ru/route/%7B"start":%5B55.791253,49.12509%5D,"end":%5B55.830038,49.122853%5D,"points":%5B%5B55.822999,49.127408%5D,%5B55.739605,49.201824%5D%5D,"method":"1","optimization":"2","center":%5B55.776580345023476,49.161810771539315%5D,"zoom":13%7D>OPeb map</a>
+      <a href=http://gen.ulnar.ru/route/%7B"start":%5B${trip.getStartCoordinates()}%5D,"end":%5B${trip.getFinishCoordinates()}%5D,"points":%5B%5B<#list users as user>${user.getCoordinates()}%5D</#list>%5D,"method":"1","optimization":"2","center":%5B55.776580345023476,49.161810771539315%5D,"zoom":13%7D>Open map</a>
     </#if>
 
 <TABLE class="Timetable">

@@ -35,5 +35,8 @@ public class Trip {
     private Integer inBus;
     private Boolean open;
 
+    private String startCoordinates;
+    private String finishCoordinates;
+
 
 }
